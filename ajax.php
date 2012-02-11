@@ -40,6 +40,12 @@ function connectBasecamp($url=false, $data=false, $args=array()) {
     $api_key = get_option( 'qc_basecamp_api' );
     $subdomain = get_option('qc_basecamp_subdomain');
     
+	if(!function_exists("curl_init")) {
+		$arr["error"] = "Curl is not installed";
+		echo json_encode($arr);
+		die;
+	}
+	
     $ch = curl_init("https://$subdomain.basecamphq.com/$url");
     
     curl_setopt($ch, CURLOPT_USERPWD, $api_key); 
@@ -176,7 +182,7 @@ function getPersons()
     $url = "/companies/$companyId/people.xml";    
     
 	$people = connectBasecamp($url);
-	
+
 	foreach($people as $key => $r) {
 		$people[$key]->full_name = $people[$key]->last_name . ', ' . $people[$key]->first_name ;
 	}
