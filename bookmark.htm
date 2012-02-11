@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+</head>
+
+<body>
+
+<div id="home_box" style="width:100%;height:100px;">
+    
+    <a href="
+       javascript:var%20c=document.createElement('link');c.href = '/wp-content/plugins/wd_quality_control/css/ui-lightness/jquery-ui-1.8.17.custom.css';
+c.type = 'text/css';
+c.rel = 'stylesheet';
+c.media = 'screen';
+document.body.appendChild(c);
+       
+var%20c2=document.createElement('link');c2.href = '/wp-content/plugins/wd_quality_control/css/quality_control.css';
+c2.type = 'text/css';
+c2.rel = 'stylesheet';
+c2.media = 'screen';
+document.body.appendChild(c2);
+    
+    var%20s=document.createElement('script');s.setAttribute('src',%20'/wp-content/plugins/wd_quality_control/js/jquery-1.7.1.min.js');
+    s.type = 'text/javascript';
+    document.body.appendChild(s);
+    
+    var%20s2=document.createElement('script');s2.setAttribute('src',%20'/wp-content/plugins/wd_quality_control/js/html2canvas.js');
+    s2.type = 'text/javascript';
+    document.body.appendChild(s2);
+    
+    var%20s3=document.createElement('script');s3.setAttribute('src',%20'/wp-content/plugins/wd_quality_control/js/jquery.plugin.html2canvas.js');
+    s3.type = 'text/javascript';
+    document.body.appendChild(s3);
+    
+    
+
+
+    
+    s.onload=function(){
+      $(window).ready(function() {
+
+        $('body').html2canvas();
+      
+      });
+      
+    
+    $.getScript('/wp-content/plugins/wd_quality_control/js/jquery-ui-1.8.17.min.js', function(){ });
+    
+
+            
+            var%20d=document.createElement('div');
+            d.setAttribute('id',%20'wd_dialog_modal');
+            document.body.appendChild(d);
+            
+            
+            $('#wd_dialog_modal').dialog({
+                height: 350,
+                width: 400,
+                
+                title: 'Create%20To%20Do%20Item%20on%20BaseCamp',
+                buttons: {
+                        'Submit': function() {
+                            $.post('/wp-content/plugins/wd_quality_control/ajax.php?action=createToDoItem',
+                                    {
+                                        url: $('#wd_url').val(),
+                                        comment: $('#wd_comment').val(),
+                                        responsible_party: $('#wd_username').val(),
+                                        ToDoListId: $('#wd_todolist').val()
+                                    },
+                                function(data) {
+                                    $( this ).dialog( 'close' );
+                                }
+                            );
+                            $( this ).dialog( 'close' );
+                        },
+                        Cancel: function() {
+                            $( this ).dialog( 'close' );
+                        }
+                    },
+            });
+            
+            
+            var%20input = document.createElement('input');
+            input.type = 'hidden';
+            input.id = 'wd_url';
+            input.value = window.location;
+            d.appendChild(input);
+            
+            var%20para = document.createElement('p');
+            d.appendChild(para);
+            
+            var%20newtext = document.createTextNode('Add%20your%20To%20Do%20Item');
+            para.appendChild(newtext);
+            
+            var%20input = document.createElement('textarea');
+            input.id = 'wd_comment';
+            para.appendChild(input);
+            
+            
+            
+            var%20para2 = document.createElement('p');
+            d.appendChild(para2);
+            
+            var%20newtext = document.createTextNode('Select%20Project:');
+            para2.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_project';
+            para2.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getProjects', function(data) {
+                $('#wd_project').html(data);
+            });
+            
+            $('#wd_project').change(function() {
+                $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getProjectToDoLists&projectid='+$('#wd_project').val(), function(data) {
+                    $('#wd_todolist').html(data);
+                });
+            });
+            
+            
+            
+            var%20para3 = document.createElement('p');
+            d.appendChild(para3);
+            
+            var%20newtext = document.createTextNode('Select%20To%20Do%20List:');
+            para3.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_todolist';
+            para3.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getProjectToDoLists', function(data) {
+                $('#wd_todolist').html(data);
+            });
+            
+            
+            
+            
+            var%20para4 = document.createElement('p');
+            d.appendChild(para4);
+            
+            var%20newtext = document.createTextNode('Select%20User:');
+            para4.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_username';
+            para4.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getPersons', function(data) {
+                $('#wd_username').html(data);
+            });
+          
+        
+
+    };void(s);
+    ">Bookmark</a>
+    
+</div>
+
+
+
+
+
+
+<!--
+
+       javascript:var%20c=document.createElement('link');c.href = '/wp-content/plugins/wd_quality_control/css/ui-lightness/jquery-ui-1.8.17.custom.css';
+c.type = 'text/css';
+c.rel = 'stylesheet';
+c.media = 'screen';
+document.body.appendChild(c);
+       
+var%20c2=document.createElement('link');c2.href = '/wp-content/plugins/wd_quality_control/css/quality_control.css';
+c2.type = 'text/css';
+c2.rel = 'stylesheet';
+c2.media = 'screen';
+document.body.appendChild(c2);
+    
+    var%20s=document.createElement('script');s.setAttribute('src',%20'/wp-content/plugins/wd_quality_control/js/jquery-1.7.1.min.js');
+    s.type = 'text/javascript';
+    document.body.appendChild(s);
+    
+    s.onload=function(){
+        var%20t=document.createElement('script');t.setAttribute('src',%20'/wp-content/plugins/wd_quality_control/js/jquery-ui-1.8.17.min.js');
+        t.type = 'text/javascript';
+        document.body.appendChild(t);
+        
+        t.onload=function(){
+            
+            var%20d=document.createElement('div');
+            d.setAttribute('id',%20'wd_dialog_modal');
+            document.body.appendChild(d);
+            
+            
+            $('#wd_dialog_modal').dialog({
+                height: 450,
+                width: 400,
+                
+                title: 'Send%20Comment%20to%20BaseCamp',
+                buttons: {
+                        'Submit': function() {
+                            $.post('/wp-content/plugins/wd_quality_control/ajax.php?action=createToDoItem',
+                                    {
+                                        url: $('#wd_url').val(),
+                                        comment: $('#wd_comment').val(),
+                                        responsible_party: $('#wd_username').val(),
+                                        todolist: $('#wd_todolist').val()
+                                    },
+                                function(data) {
+                                    $( this ).dialog( 'close' );
+                                }
+                            );
+                            $( this ).dialog( 'close' );
+                        },
+                        Cancel: function() {
+                            $( this ).dialog( 'close' );
+                        }
+                    },
+            });
+            
+            
+            var%20input = document.createElement('input');
+            input.type = 'hidden';
+            input.id = 'wd_url';
+            input.value = window.location;
+            d.appendChild(input);
+            
+            var%20para = document.createElement('p');
+            d.appendChild(para);
+            
+            var%20newtext = document.createTextNode('Add%20your%20To%20Do%20Item');
+            para.appendChild(newtext);
+            
+            var%20input = document.createElement('textarea');
+            input.id = 'wd_comment';
+            para.appendChild(input);
+            
+            
+            
+            var%20para2 = document.createElement('p');
+            d.appendChild(para2);
+            
+            var%20newtext = document.createTextNode('Select%20Project:');
+            para2.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_project';
+            para2.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getProjects', function(data) {
+                $('#wd_project').html(data);
+            });
+            
+            
+            var%20para3 = document.createElement('p');
+            d.appendChild(para3);
+            
+            var%20newtext = document.createTextNode('Select%20To%20Do%20List:');
+            para3.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_todolist';
+            para3.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getProjectToDoLists', function(data) {
+                $('#wd_todolist').html(data);
+            });
+            
+            
+            
+            
+            var%20para4 = document.createElement('p');
+            d.appendChild(para4);
+            
+            var%20newtext = document.createTextNode('Select%20User:');
+            para4.appendChild(newtext);
+            
+            var%20input = document.createElement('select');
+            input.id = 'wd_username';
+            para4.appendChild(input);
+            
+            $.get('/wp-content/plugins/wd_quality_control/ajax.php?action=getPersons', function(data) {
+                $('#wd_username').html(data);
+            });
+          
+        };
+
+    };void(s);
+    
+    
+-->
+
+</body>
+</html>
