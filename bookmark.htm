@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-
-  
+<head>  
 </head>
-
 <body>
-
-<div id="home_box" style="width:100%;height:100px;">
     
     <a href="
        javascript:var%20c=document.createElement('link');c.href = '/wp-content/plugins/treu-quality-control/css/ui-lightness/jquery-ui-1.8.17.custom.css';
@@ -31,7 +26,7 @@ document.body.appendChild(c2);
     
     $.getScript('/wp-content/plugins/treu-quality-control/js/jquery-ui-1.8.17.min.js', function(){
         var%20d=document.createElement('div');
-            d.setAttribute('id',%20'wd_dialog_modal');
+            d.setAttribute('id',%20'qc_dialog_modal');
             document.body.appendChild(d);
             
             
@@ -64,7 +59,7 @@ document.body.appendChild(c2);
             
             var%20input = document.createElement('input');
             input.type = 'hidden';
-            input.id = 'wd_url';
+            input.id = 'qc_url';
             input.value = window.location;
             d.appendChild(input);
             
@@ -75,7 +70,7 @@ document.body.appendChild(c2);
             para.appendChild(newtext);
             
             var%20input = document.createElement('textarea');
-            input.id = 'wd_comment';
+            input.id = 'qc_comment';
             para.appendChild(input);
             
             
@@ -87,7 +82,7 @@ document.body.appendChild(c2);
             para2.appendChild(newtext);
             
             var%20input = document.createElement('select');
-            input.id = 'wd_project';
+            input.id = 'qc_project';
             para2.appendChild(input);
             
             $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjects', function(data) {
@@ -109,7 +104,7 @@ document.body.appendChild(c2);
             para3.appendChild(newtext);
             
             var%20input = document.createElement('select');
-            input.id = 'wd_todolist';
+            input.id = 'qc_todolist';
             para3.appendChild(input);
             
             $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjectToDoLists', function(data) {
@@ -126,7 +121,7 @@ document.body.appendChild(c2);
             para4.appendChild(newtext);
             
             var%20input = document.createElement('select');
-            input.id = 'wd_username';
+            input.id = 'qc_username';
             para4.appendChild(input);
             
             $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getPersons', function(data) {
@@ -139,139 +134,149 @@ document.body.appendChild(c2);
     };void(s);
     ">Bookmark</a>
     
-</div>
-
-
-
-
-
-
 <!--
 
-       javascript:var%20c=document.createElement('link');c.href = '/wp-content/plugins/treu-quality-control/css/ui-lightness/jquery-ui-1.8.17.custom.css';
-c.type = 'text/css';
-c.rel = 'stylesheet';
-c.media = 'screen';
-document.body.appendChild(c);
-       
-var%20c2=document.createElement('link');c2.href = '/wp-content/plugins/treu-quality-control/css/quality_control.css';
-c2.type = 'text/css';
-c2.rel = 'stylesheet';
-c2.media = 'screen';
-document.body.appendChild(c2);
-    
-    var%20s=document.createElement('script');s.setAttribute('src',%20'/wp-content/plugins/treu-quality-control/js/jquery-1.7.1.min.js');
-    s.type = 'text/javascript';
-    document.body.appendChild(s);
-    
-    s.onload=function(){
-        var%20t=document.createElement('script');t.setAttribute('src',%20'/wp-content/plugins/treu-quality-control/js/jquery-ui-1.8.17.min.js');
-        t.type = 'text/javascript';
-        document.body.appendChild(t);
-        
-        t.onload=function(){
-            
-            var%20d=document.createElement('div');
-            d.setAttribute('id',%20'wd_dialog_modal');
-            document.body.appendChild(d);
-            
-            
-            $('#qc_dialog_modal').dialog({
-                height: 450,
-                width: 400,
-                
-                title: 'Send%20Comment%20to%20BaseCamp',
-                buttons: {
-                        'Submit': function() {
-                            $.post('/wp-content/plugins/treu-quality-control/ajax.php?action=createToDoItem',
-                                    {
-                                        url: $('#qc_url').val(),
-                                        comment: $('#qc_comment').val(),
-                                        responsible_party: $('#qc_username').val(),
-                                        todolist: $('#qc_todolist').val()
-                                    },
-                                function(data) {
-                                    $( this ).dialog( 'close' );
-                                }
-                            );
-                            $( this ).dialog( 'close' );
-                        },
-                        Cancel: function() {
-                            $( this ).dialog( 'close' );
-                        }
-                    },
-            });
-            
-            
-            var%20input = document.createElement('input');
-            input.type = 'hidden';
-            input.id = 'wd_url';
-            input.value = window.location;
-            d.appendChild(input);
-            
-            var%20para = document.createElement('p');
-            d.appendChild(para);
-            
-            var%20newtext = document.createTextNode('Add%20your%20To%20Do%20Item');
-            para.appendChild(newtext);
-            
-            var%20input = document.createElement('textarea');
-            input.id = 'wd_comment';
-            para.appendChild(input);
-            
-            
-            
-            var%20para2 = document.createElement('p');
-            d.appendChild(para2);
-            
-            var%20newtext = document.createTextNode('Select%20Project:');
-            para2.appendChild(newtext);
-            
-            var%20input = document.createElement('select');
-            input.id = 'wd_project';
-            para2.appendChild(input);
-            
-            $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjects', function(data) {
-                $('#qc_project').html(data);
-            });
-            
-            
-            var%20para3 = document.createElement('p');
-            d.appendChild(para3);
-            
-            var%20newtext = document.createTextNode('Select%20To%20Do%20List:');
-            para3.appendChild(newtext);
-            
-            var%20input = document.createElement('select');
-            input.id = 'wd_todolist';
-            para3.appendChild(input);
-            
-            $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjectToDoLists', function(data) {
-                $('#qc_todolist').html(data);
-            });
-            
-            
-            
-            
-            var%20para4 = document.createElement('p');
-            d.appendChild(para4);
-            
-            var%20newtext = document.createTextNode('Select%20User:');
-            para4.appendChild(newtext);
-            
-            var%20input = document.createElement('select');
-            input.id = 'wd_username';
-            para4.appendChild(input);
-            
-            $.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getPersons', function(data) {
-                $('#qc_username').html(data);
-            });
-          
-        };
+	<!DOCTYPE html>
+	<html>
+	<head>  
+	</head>
+	<body>
+		
+		<a href="
+		   javascript:var%20c=document.createElement('link');c.href = '/wp-content/plugins/treu-quality-control/css/ui-lightness/jquery-ui-1.8.17.custom.css';
+	c.type = 'text/css';
+	c.rel = 'stylesheet';
+	c.media = 'screen';
+	document.body.appendChild(c);
+		   
+	var%20c2=document.createElement('link');c2.href = '/wp-content/plugins/treu-quality-control/css/quality_control.css';
+	c2.type = 'text/css';
+	c2.rel = 'stylesheet';
+	c2.media = 'screen';
+	document.body.appendChild(c2);
+		
+		var%20s=document.createElement('script');s.setAttribute('src',%20'/wp-content/plugins/treu-quality-control/js/jquery-1.7.1.min.js');
+		s.type = 'text/javascript';
+		document.body.appendChild(s);
 
-    };void(s);
-    
-    
+		
+		s.onload=function(){
+		
+		$.getScript('/wp-content/plugins/treu-quality-control/js/jquery-ui-1.8.17.min.js', function(){
+			var%20d=document.createElement('div');
+				d.setAttribute('id',%20'qc_dialog_modal');
+				document.body.appendChild(d);
+				
+				
+				$('#qc_dialog_modal').dialog({
+					height: 350,
+					width: 400,
+					
+					title: 'Create%20To%20Do%20Item%20on%20BaseCamp',
+					buttons: {
+							'Submit': function() {
+								$.post('/wp-content/plugins/treu-quality-control/ajax.php?action=createToDoItem',
+										{
+											url: $('#qc_url').val(),
+											comment: $('#qc_comment').val(),
+											responsible_party: $('#qc_username').val(),
+											ToDoListId: $('#qc_todolist').val()
+										},
+									function(data) {
+										$( this ).dialog( 'close' );
+									}
+								);
+								$( this ).dialog( 'close' );
+							},
+							Cancel: function() {
+								$( this ).dialog( 'close' );
+							}
+						},
+				});
+				
+				
+				var%20input = document.createElement('input');
+				input.type = 'hidden';
+				input.id = 'qc_url';
+				input.value = window.location;
+				d.appendChild(input);
+				
+				var%20para = document.createElement('p');
+				d.appendChild(para);
+				
+				var%20newtext = document.createTextNode('Add%20your%20To%20Do%20Item');
+				para.appendChild(newtext);
+				
+				var%20input = document.createElement('textarea');
+				input.id = 'qc_comment';
+				para.appendChild(input);
+				
+				
+				
+				var%20para2 = document.createElement('p');
+				d.appendChild(para2);
+				
+				var%20newtext = document.createTextNode('Select%20Project:');
+				para2.appendChild(newtext);
+				
+				var%20input = document.createElement('select');
+				input.id = 'qc_project';
+				para2.appendChild(input);
+				
+				$.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjects', function(data) {
+					$('#qc_project').html(data);
+				});
+				
+				$('#qc_project').change(function() {
+					$.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjectToDoLists&projectid='+$('#qc_project').val(), function(data) {
+						$('#qc_todolist').html(data);
+					});
+				});
+				
+				
+				
+				var%20para3 = document.createElement('p');
+				d.appendChild(para3);
+				
+				var%20newtext = document.createTextNode('Select%20To%20Do%20List:');
+				para3.appendChild(newtext);
+				
+				var%20input = document.createElement('select');
+				input.id = 'qc_todolist';
+				para3.appendChild(input);
+				
+				$.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getProjectToDoLists', function(data) {
+					$('#qc_todolist').html(data);
+				});
+				
+				
+				
+				
+				var%20para4 = document.createElement('p');
+				d.appendChild(para4);
+				
+				var%20newtext = document.createTextNode('Select%20User:');
+				para4.appendChild(newtext);
+				
+				var%20input = document.createElement('select');
+				input.id = 'qc_username';
+				para4.appendChild(input);
+				
+				$.get('/wp-content/plugins/treu-quality-control/ajax.php?action=getPersons', function(data) {
+					$('#qc_username').html(data);
+				});
+		
+		});
+		
+
+		};void(s);
+		">Bookmark</a>
+		
+
+
+	</body>
+	</html>
+
 -->
 
 </body>

@@ -1,5 +1,24 @@
 <?php
 
+/*
+Copyright (C) 2012 Scott gottreu
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+*/
+
 require_once('../../../wp-config.php');
 
 $link = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
@@ -228,25 +247,3 @@ function sortLastFirst($a, $b) {
     return ($a->full_name < $b->full_name) ? -1 : 1;
 }
 
-/**************
-
-I was wondering how to decode attached images within mails. Basically they are mostly JPEG files, so it was obviously to write a function that decodes JPEG images. 
-I guess the plainest way to do so was the following: 
-
-
-function base64_to_jpeg( $imageData, $outputfile ) { 
-  // encode & write data (binary) 
-  // $ifp = fopen( $outputfile, "wb" ); 
-  // fwrite( $ifp, base64_decode( $imageData ) ); 
-  // fclose( $ifp ); 
-  //  return output filename 
-  // return( $outputfile ); 
-//} 
-
-
-This function decodes the given inputfile (a filename!) and saves it to the given outputfile (a filename as well) and then returns the output filename for further usage (e.g. redirect, imagejpeg() and so on). 
-I thought that might be helpful.
-
-
-
-****************/
