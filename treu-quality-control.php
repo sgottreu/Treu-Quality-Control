@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Treu Quality Control
-Plugin URI: http://www.treutech.com/
+Plugin URI: http://www.treutech.com/wordpress/quality-control-plugin
 Description: Passing quality control info from the host site to BaseCamp
 Author: Scott Gottreu
 Version: 1.0
