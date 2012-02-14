@@ -29,6 +29,8 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 add_action('admin_menu', 'treu_quality_control_admin_menu');
 
+register_uninstall_hook( __FILE__, 'treu_quality_control_uninstall' );
+
 function treu_quality_control_admin_menu() {
 	add_options_page('Treu Quality Control Options', 'Treu Quality Control Plugin', 'manage_options', 'quality-control-basecamp-plugin', 'treu_quality_control_plugin_options');
 }
@@ -81,7 +83,9 @@ function treu_quality_control_plugin_options() {
     <div class="wrap">
 
         <h2><?php echo __( 'Treu Quality Control Plugin Settings', 'menu-test' );?></h2>
-
+		
+		<h3><?php require_once('bookmark.htm');?></h3>
+		
         <form name="prefixes" method="post" action="">
         <input type="hidden" name="submit-hidden" value="Y">
         
@@ -109,4 +113,14 @@ function treu_quality_control_plugin_options() {
     </div>
 
 <?php
+}
+
+
+function treu_quality_control_uninstall()
+{
+	// Delete associated options
+	delete_option( 'qc_basecamp_api' );
+	delete_option( 'qc_basecamp_company' );
+	delete_option( 'qc_basecamp_subdomain' );        
+
 }
